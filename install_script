@@ -1,0 +1,17 @@
+#!/bin/bash
+
+sudo mkdir rt-pi4
+cd rt-pi4/
+sudo git clone https://github.com/akk988/real-time-tools.git
+cd real-time-tools/
+sudo tar xzf rt-kernel.tgz
+cd boot/
+sudo cp -rd * /boot/
+cd ../lib/
+sudo cp -dr * /lib/
+cd ../overlays/
+sudo cp -d * /boot/overlays
+cd ..
+sudo cp -d bcm* /boot/
+sudo echo "kernel=kernel7_rt.img" >> /boot/config.txt
+sudo reboot
